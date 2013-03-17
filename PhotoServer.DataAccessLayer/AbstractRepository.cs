@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data.Entity;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -8,35 +9,46 @@ using PhotoServer.Domain;
 
 namespace PhotoServer.DataAccessLayer
 {
-	public abstract class AbstractRepository<T, TKey> : IRepository<T,TKey> where T:IEntity<TKey>
+	public abstract class AbstractRepository<T, TKey> : IRepository<T,TKey> where T: class, IEntity<TKey>
+
 	{
+		private DbSet<T> _data;
+		public virtual DbSet<T> Data { get { return _data; } }
 		
+		protected AbstractRepository(DbSet<T> data)
+		{
+			_data = data;
+		}
+	
 		public virtual void Add(T item)
 		{
-			throw new NotImplementedException();
+			Data.Add(item);
 		}
 
 		public virtual void Remove(T item)
 		{
-			throw new NotImplementedException();
+			Data.Remove(item);
 		}
 
 		public  virtual IQueryable<T> FindAll()
 		{
-			throw new NotImplementedException();
+			return Data;
 		}
 
 		public virtual T FindById(TKey id)
 		{
-			throw new NotImplementedException();
+			return Data.SingleOrDefault(item => item.Id.Equals(id));
 		}
 
 		public virtual IQueryable<T> Find(Func<T, bool> predicate)
 		{
-			throw new NotImplementedException();
+			return Data.Where(x => predicate(x));
 		}
 
-		public abstract void SaveChanges();
+		public virtual void SaveChanges()
+		{
+			
+		}
 
 	}
 }

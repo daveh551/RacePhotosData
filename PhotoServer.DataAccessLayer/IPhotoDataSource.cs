@@ -9,6 +9,7 @@ namespace PhotoServer.DataAccessLayer
 {
     public interface IPhotoDataSource
     {
-         IRepository<PhotoData, Guid> photoData { get; }
+        IRepository<Photo, Guid> photoData { get; }
+	    int SaveChanges();
     }
 }

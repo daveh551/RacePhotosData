@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace PhotoServer.Domain
 {
-    public class PhotoData : GuidEntity
+    public class Photo : GuidEntity
     {
 	    public const string DEFAULTSTATION = "FinishLine";
 
@@ -22,7 +22,7 @@ namespace PhotoServer.Domain
 	    public long FileSize { get; set; }
 	    public DateTime? LastAccessed { get; set; }
 
-	    public PhotoData(string race, string station, string card, int seq)
+	    public Photo(string race, string station, string card, int seq)
 	    {
 
 		    Race = race;
@@ -35,7 +35,7 @@ namespace PhotoServer.Domain
 
 	    }
 
-	    public PhotoData()
+	    public Photo()
 	    {
 		    
 	    }
