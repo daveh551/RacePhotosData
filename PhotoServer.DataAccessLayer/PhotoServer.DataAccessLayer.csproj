@@ -51,6 +51,7 @@
     <Compile Include="AbstractRepository.cs" />
     <Compile Include="IPhotoDataSource.cs" />
     <Compile Include="IRepository.cs" />
+    <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="PhotoDataRepository.cs" />
     <Compile Include="EFPhotoServerDataSource.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
