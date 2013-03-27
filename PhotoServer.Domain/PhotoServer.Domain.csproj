@@ -39,6 +39,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Distance.cs" />
+    <Compile Include="Event.cs" />
     <Compile Include="IEntity.cs" />
     <Compile Include="GuidEntity.cs" />
     <Compile Include="IntEntity.cs" />

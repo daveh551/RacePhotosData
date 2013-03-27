@@ -6,11 +6,12 @@ using System.Threading.Tasks;
 
 namespace PhotoServer.Domain
 {
-	class Race : IntEntity
+	public class Race : IntEntity
 	{
-		public string RaceName { get; set; }
-		public DateTime? RaceDate { get; set; }
-		public string Location { get; set; }
-		public IEnumerable<string> Distance { get; set; }
+		public int EventId { get; set; }
+		public Event Event { get; set; }
+		public int DistanceId { get; set; }
+		public Distance Distance { get; set; }
+		public override	string ToString(){ return string.Format("{0}.{1}", Event.EventName, Distance.RaceDistance); } 
 	}
 }

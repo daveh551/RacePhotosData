@@ -45,12 +45,15 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="AbstractRepository.cs" />
+    <Compile Include="DistanceRepository.cs" />
+    <Compile Include="EventRepository.cs" />
     <Compile Include="IPhotoDataSource.cs" />
     <Compile Include="IRepository.cs" />
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="PhotoDataRepository.cs" />
     <Compile Include="EFPhotoServerDataSource.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="RaceRepository.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\PhotoServer.Domain\PhotoServer.Domain.csproj">

@@ -10,7 +10,8 @@ namespace PhotoServer.Domain
     {
 	    public const string DEFAULTSTATION = "FinishLine";
 
-	    public virtual string  Race { get; set; }
+	    public virtual int  RaceId { get; set; }
+	    public Race Race { get; set; }
 	    public virtual string Station { get; set; }
 	    public virtual string Card { get; set; }
 	    public virtual int Sequence { get; set; }
@@ -21,23 +22,27 @@ namespace PhotoServer.Domain
 	    public Guid? BasedOn { get; set; }
 	    public long FileSize { get; set; }
 	    public DateTime? LastAccessed { get; set; }
+	    public string Server { get; set; }
 
-	    public Photo(string race, string station, string card, int seq)
+
+	    public Photo(int raceId, string station, string card, int seq)
 	    {
 
-		    Race = race;
+		    RaceId = raceId;
 		    Station = string.IsNullOrWhiteSpace(station) ? DEFAULTSTATION : station;
 		    Card = string.IsNullOrWhiteSpace(card) ? "1" : card;
 		    Sequence = seq;
-
-		    Path = string.Format("{0}/{1}/{2}/{3:000}.jpg", Race, Station, Card, Sequence);
-
-
 	    }
 
 	    public Photo()
 	    {
 		    
 	    }
+
+		public string SetPath()
+		{
+			Path = string.Format("{0}/{1}/{2}/{3:000}.jpg", Race.ToString(), Station, Card, Sequence);
+			return Path;
+		}
     }
 }
